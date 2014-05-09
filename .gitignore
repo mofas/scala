@@ -3,5 +3,6 @@ example
 recfun
 funsets
 objsets
+patmat
 .setting
 .metadata
