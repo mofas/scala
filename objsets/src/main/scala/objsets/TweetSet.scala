@@ -114,7 +114,8 @@ class Empty extends TweetSet {
 
   def filter(p: Tweet => Boolean): TweetSet = this
   def filterAcc(p: Tweet => Boolean, acc: TweetSet): TweetSet = acc
-  def union(that: TweetSet): TweetSet = that 
+  def union(that: TweetSet): TweetSet = that
+  
   def isEmpty = true
   def mostRetweeted: Tweet = throw new java.util.NoSuchElementException
   
@@ -143,7 +144,7 @@ class NonEmpty(elem: Tweet, left: TweetSet, right: TweetSet) extends TweetSet {
   }
   
   def union(that: TweetSet): TweetSet = {
-    left.union(right).union(that).incl(elem)    
+    left.union(right.union(that.incl(elem)))    
   }
   
   def isEmpty = false
@@ -156,7 +157,7 @@ class NonEmpty(elem: Tweet, left: TweetSet, right: TweetSet) extends TweetSet {
   }
     
   
-  def descendingByRetweet: TweetList = {
+  def descendingByRetweet: TweetList = {     
     val max = mostRetweeted
     val rest = remove(mostRetweeted)
     new Cons(max , rest.descendingByRetweet)
