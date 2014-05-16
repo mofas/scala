@@ -1,6 +1,7 @@
 package forcomp
 
 import common._
+import scala.language.postfixOps
 
 object Anagrams {
 
