@@ -46,10 +46,10 @@ class HuffmanSuite extends FunSuite {
     
     val treesList2 = createCodeTree(List('a','c','b','c','b','b','a','a','d','a'))
     assert(weight(treesList2) === 10)
-	assert(chars(treesList2).contains('a'))
-	assert(chars(treesList2).contains('b'))
-	assert(chars(treesList2).contains('c'))
-	assert(chars(treesList2).contains('d'))
+  assert(chars(treesList2).contains('a'))
+  assert(chars(treesList2).contains('b'))
+  assert(chars(treesList2).contains('c'))
+  assert(chars(treesList2).contains('d'))
   }
 
   test("combine of some leaf list") {
@@ -62,24 +62,24 @@ class HuffmanSuite extends FunSuite {
       assert(decode(t1, encode(t1)("ab".toList)) === "ab".toList)
     }
   }
-    	  
+
   test("decode and encode") {
     val t1 = Fork(Leaf('a',2), Leaf('b',3), List('a','b'), 5)
-	assert(decode(t1, encode(t1)("ab".toList)) === List('a', 'b')) 
-	assert(decode(t1, encode(t1)("baaab".toList)) === List('b', 'a', 'a', 'a', 'b'))
+  assert(decode(t1, encode(t1)("ab".toList)) === List('a', 'b')) 
+  assert(decode(t1, encode(t1)("baaab".toList)) === List('b', 'a', 'a', 'a', 'b'))
   }
   
   test("convert function") {
-	assert(convert(Fork(Leaf('a',2), Leaf('b',3), List('a','b'), 5)) === List(('a',List(0)), ('b',List(1))))
+  assert(convert(Fork(Leaf('a',2), Leaf('b',3), List('a','b'), 5)) === List(('a',List(0)), ('b',List(1))))
   }
     
   test("quickEncode function") {
-	val t2 = Fork(Leaf('a',2), Leaf('b',3), List('a','b'), 5)
-	assert(decode(t2, quickEncode(t2)("ab".toList)) === List('a', 'b'))
-	assert(decode(t2, quickEncode(t2)("baaab".toList)) === List('b', 'a', 'a', 'a', 'b'))
+  val t2 = Fork(Leaf('a',2), Leaf('b',3), List('a','b'), 5)
+  assert(decode(t2, quickEncode(t2)("ab".toList)) === List('a', 'b'))
+  assert(decode(t2, quickEncode(t2)("baaab".toList)) === List('b', 'a', 'a', 'a', 'b'))
   }
 
   test("decodedSecret function") {
-	  assert(decodedSecret === List('h', 'u', 'f', 'f', 'm', 'a', 'n', 'e', 's', 't', 'c', 'o', 'o', 'l'))
+    assert(decodedSecret === List('h', 'u', 'f', 'f', 'm', 'a', 'n', 'e', 's', 't', 'c', 'o', 'o', 'l'))
   }
 }
